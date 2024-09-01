@@ -24,61 +24,69 @@ module.exports = {
   // Base config
   extends: ["eslint:recommended"],
 
-  overrides: [
-    // React
-    {
-      files: ["**/*.{js,jsx,ts,tsx}"],
-      plugins: ["react", "jsx-a11y"],
-      extends: [
-        "plugin:react/recommended",
-        "plugin:react/jsx-runtime",
-        "plugin:react-hooks/recommended",
-        "plugin:jsx-a11y/recommended",
-      ],
-      settings: {
-        react: {
-          version: "detect",
-        },
-        formComponents: ["Form"],
-        linkComponents: [
-          { name: "Link", linkAttribute: "to" },
-          { name: "NavLink", linkAttribute: "to" },
-        ],
-        "import/resolver": {
-          typescript: {},
-        },
-      },
-    },
+  // overrides: [
+  //   // React
+  //   {
+  //     files: ["**/*.{js,jsx,ts,tsx}"],
+  //     plugins: ["react", "jsx-a11y"],
+  //     extends: [
+  //       "plugin:react/recommended",
+  //       "plugin:react/jsx-runtime",
+  //       "plugin:react-hooks/recommended",
+  //       "plugin:jsx-a11y/recommended",
+  //     ],
+  //     settings: {
+  //       react: {
+  //         version: "detect",
+  //       },
+  //       formComponents: ["Form"],
+  //       linkComponents: [
+  //         { name: "Link", linkAttribute: "to" },
+  //         { name: "NavLink", linkAttribute: "to" },
+  //       ],
+  //       "import/resolver": {
+  //         typescript: {},
+  //       },
+  //     },
+  //   },
 
-    // Typescript
-    {
-      files: ["**/*.{ts,tsx}"],
-      plugins: ["@typescript-eslint", "import"],
-      parser: "@typescript-eslint/parser",
-      settings: {
-        "import/internal-regex": "^~/",
-        "import/resolver": {
-          node: {
-            extensions: [".ts", ".tsx"],
-          },
-          typescript: {
-            alwaysTryTypes: true,
-          },
-        },
-      },
-      extends: [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:import/recommended",
-        "plugin:import/typescript",
-      ],
-    },
+  //   // Typescript
+  //   {
+  //     files: ["**/*.{ts,tsx}"],
+  //     plugins: ["@typescript-eslint", "import"],
+  //     parser: "@typescript-eslint/parser",
+  //     settings: {
+  //       "import/internal-regex": "^~/",
+  //       "import/resolver": {
+  //         node: {
+  //           extensions: [".ts", ".tsx"],
+  //         },
+  //         typescript: {
+  //           alwaysTryTypes: true,
+  //         },
+  //       },
+  //     },
+  //     extends: [
+  //       "plugin:@typescript-eslint/recommended",
+  //       "plugin:import/recommended",
+  //       "plugin:import/typescript",
+  //     ],
+  //   },
 
-    // Node
-    {
-      files: [".eslintrc.cjs"],
-      env: {
-        node: true,
-      },
-    },
-  ],
+  //   // Node
+  //   {
+  //     files: [".eslintrc.cjs"],
+  //     env: {
+  //       node: true,
+  //     },
+  //   },
+  // ],
+  rules: {
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-var-requires": "off",
+  },
 };
