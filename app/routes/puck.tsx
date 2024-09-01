@@ -17,7 +17,7 @@ const config: any = {
     TextInput: {
       fields: {
         name: { type: "text" },
-        lalel: { type: "text" },
+        label: { type: "text" },
         description: { type: "text" },
         placeholder: { type: "text" },
       },
@@ -52,9 +52,11 @@ export default function () {
   const [edit, setEdit] = useState(false);
 
   return (
-    <div>
+    <div style={{ margin: 30 }}>
       {data && <Render config={config} data={data} />}
-      <Button onClick={() => setEdit(true)}>Edit</Button>
+      <Button onClick={() => setEdit(true)} mt={30}>
+        Edit
+      </Button>
       <Modal
         opened={edit}
         onClose={() => setEdit(false)}
@@ -62,7 +64,14 @@ export default function () {
         withCloseButton={false}
       >
         <div style={{ width: "90%", height: 700 }}>
-          <Puck config={config} data={data} onPublish={(d) => setData(d)} />
+          <Puck
+            config={config}
+            data={data}
+            onPublish={(d) => {
+              setData(d);
+              setEdit(false);
+            }}
+          />
         </div>
       </Modal>
     </div>
